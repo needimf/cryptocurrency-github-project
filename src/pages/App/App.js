@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import NavBar from './../NavBar/NavBar';
-import Cards from './../Cards/Cards';
+import {
+  Switch,
+  Route
+} from 'react-router-dom';
+import NavBar from './../../components/NavBar/NavBar';
+import MainPage from './../MainPage/MainPage';
+import FindPage from './../FindPage/FindPage';
 import GITHUBAPI from './../../api/githubApi';
 
 class App extends Component {
@@ -28,19 +33,16 @@ class App extends Component {
     return (
       <div>
         <NavBar />
-        <section className='hero is-medium is-dark'>
-          <div className='hero-body'>
-            <div className='container'>
-              <h1 className='title'>Top 6 Cryptocurrency Projects</h1>
-              <h2 className='subtitle'>By Total Market Capitilization</h2>
-            </div>
-          </div>
-        </section>
-        <div className='section'>
-          <Cards 
-            topSixProjects={this.state.topSixProjects}
+        <Switch>
+          <Route exact path='/' render={(props) =>
+            <MainPage 
+              topSixProjects={this.state.topSixProjects}
+            />}
           />
-        </div>
+          <Route exact path='/find' render={(props) =>
+            <FindPage />}
+          />
+        </Switch>
       </div>
     );
   }

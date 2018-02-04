@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 class NavBar extends Component {
   constructor(props) {
@@ -32,12 +33,12 @@ class NavBar extends Component {
         </div>
         <div className={`navbar-menu${this.state.navbarMenuStatus}`}>
           <div className='navbar-end'>
-            <a href='#' className='navbar-item'>
+            <Link to='/' className='navbar-item'>
               Top 6
-            </a>
-            <a href='#' className='navbar-item'>
+            </Link>
+            <Link to='/find' className='navbar-item'>
               Find a Project
-            </a>
+            </Link>
           </div>
         </div>
       </nav>

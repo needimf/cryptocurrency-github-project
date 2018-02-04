@@ -2,9 +2,20 @@ import React from 'react';
 import Card from './../Card/Card';
 
 const Cards = (props) => {
+  let cards = props.topSixProjects.map((project, idx) => {
+    return (
+      <Card
+        key={project.id}
+        project={project}
+        rank={idx + 1}
+      />
+    );
+  })
   return (
-    <div>
-      <Card />
+    <div className='container'>
+      <div className='columns is-multiline'>
+        {cards}
+      </div>
     </div>
   )
 }

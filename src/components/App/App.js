@@ -5,6 +5,12 @@ import Cards from './../Cards/Cards';
 import GITHUBAPI from './../../api/githubApi';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      topSixProjects: []
+    }
+  }
 
   /*---------Lifecycle Methods---------*/
   componentDidMount() {
@@ -13,7 +19,7 @@ class App extends Component {
     GITHUBAPI.fetchTop6CryptoProjects()
       .then((repoData) => {
         this.setState({
-          top6Repos: repoData
+          topSixProjects: repoData
         })
       });
   }
@@ -28,9 +34,9 @@ class App extends Component {
             <h2 className='subtitle is-5 has-text-centered'>By Total Market Capitilization</h2>
           </div>
         </section>
-        <section className='section'>
-          <Cards />
-        </section>
+        <Cards 
+          topSixProjects={this.state.topSixProjects}
+        />
       </div>
     );
   }

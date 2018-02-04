@@ -1,5 +1,4 @@
 import React from 'react';
-import './Card.css';
 
 const Card = (props) => {
   return (
@@ -35,23 +34,23 @@ const Card = (props) => {
           <div>
             {props.project.description}
           </div>
-          <div className='Card-divider'></div>
+          <hr />
 
           {/* Repo information section */}
-          <div className='columns is-centered is-multiline'>
-            <div className='column is-half-tablet'>
+          <div className='columns is-centered is-multiline is-mobile'>
+            <div className='column is-half'>
               <div className='has-text-centered'>
                 <p className='heading'>Language</p>
                 <p className='title'>{props.project.language}</p>
               </div>
             </div>
-            <div className='column is-half-tablet'>
+            <div className='column is-half'>
               <div className='has-text-centered'>
                 <p className='heading'>Open Issues</p>
                 <p className='title'>{props.project.open_issues}</p>
               </div>
             </div>
-            <div className='column is-half-tablet'>
+            <div className='column is-half'>
               <div className='has-text-centered'>
                 <p className='heading'>Forks</p>
                 <p className='title'>{props.project.forks}</p>

@@ -28,15 +28,19 @@ class App extends Component {
     return (
       <div>
         <NavBar />
-        <section className='section'>
-          <div className='container'>
-            <h1 className='title is-3 has-text-centered'>Top 6 Cryptocurrency/Blockchain Projects</h1>
-            <h2 className='subtitle is-5 has-text-centered'>By Total Market Capitilization</h2>
+        <section className='hero is-medium is-dark'>
+          <div className='hero-body'>
+            <div className='container'>
+              <h1 className='title'>Top 6 Cryptocurrency Projects</h1>
+              <h2 className='subtitle'>By Total Market Capitilization</h2>
+            </div>
           </div>
         </section>
-        <Cards 
-          topSixProjects={this.state.topSixProjects}
-        />
+        <div className='section'>
+          <Cards 
+            topSixProjects={this.state.topSixProjects}
+          />
+        </div>
       </div>
     );
   }

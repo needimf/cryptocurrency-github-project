@@ -17,12 +17,12 @@ class NavBar extends Component {
   /*---------- Lifecycle Methods ----------*/ 
   render() {
     return (
-      <nav className='navbar is-fixed-top is-dark'>
+      <nav className='navbar is-fixed-top is-warning'>
         <div className='navbar-brand'>
           <p className='navbar-item is-size-4 has-text-weight-semibold'>Crypto Github Projects</p>
 
           <button 
-            className={`button navbar-burger is-dark${this.state.navbarMenuStatus}`}
+            className={`button navbar-burger is-warning${this.state.navbarMenuStatus}`}
             onClick={() => this.handleNavBarHamburgerClick()}
           >
             <span></span>
@@ -31,13 +31,14 @@ class NavBar extends Component {
           </button>
         </div>
         <div className={`navbar-menu${this.state.navbarMenuStatus}`}>
-          <div className='navbar-end'></div>
-            <div className='navbar-item'>
-              <button className='button is-black'>Top 6</button>
-            </div>
-            <div className='navbar-item'>
-              <button className='button is-black'>Find a Project</button>
-            </div>
+          <div className='navbar-end'>
+            <a href='#' className='navbar-item'>
+              Top 6
+            </a>
+            <a href='#' className='navbar-item'>
+              Find a Project
+            </a>
+          </div>
         </div>
       </nav>
     )

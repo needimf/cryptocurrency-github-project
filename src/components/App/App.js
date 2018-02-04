@@ -2,8 +2,22 @@ import React, { Component } from 'react';
 import './App.css';
 import NavBar from './../NavBar/NavBar';
 import Cards from './../Cards/Cards';
+import GITHUBAPI from './../../api/githubApi';
 
 class App extends Component {
+
+  /*---------Lifecycle Methods---------*/
+  componentDidMount() {
+    // Gets data from Github for the Top 6 crypto projects by 
+    // market cap and updates state
+    GITHUBAPI.fetchTop6CryptoProjects()
+      .then((repoData) => {
+        this.setState({
+          top6Repos: repoData
+        })
+      });
+  }
+
   render() {
     return (
       <div>

@@ -2,7 +2,7 @@ import React from 'react';
 import Card from './../Card/Card';
 
 const Cards = (props) => {
-  let cards = props.topSixProjects.map((project, idx) => {
+  let cards = props.projectData.map((project, idx) => {
     return (
       <Card
         key={project.id}

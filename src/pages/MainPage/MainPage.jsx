@@ -14,7 +14,7 @@ const MainPage = (props) => {
       </section>
       <div className='section'>
         <Cards 
-          topSixProjects={props.topSixProjects}
+          projectData={props.projectData}
         />
       </div>
     </div>

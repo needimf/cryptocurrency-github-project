@@ -16,6 +16,11 @@ const FORMATGITAPI = {
 
       return reformattedData;
     })
+  },
+
+  formatGeneralSearchResults: function(searchResult) {
+    console.log(searchResult)
+    return searchResult.items;
   }
 }
 

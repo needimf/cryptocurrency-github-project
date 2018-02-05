@@ -36,7 +36,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/' render={(props) =>
             <MainPage 
-              topSixProjects={this.state.topSixProjects}
+              projectData={this.state.topSixProjects}
             />}
           />
           <Route exact path='/find' render={(props) =>

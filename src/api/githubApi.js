@@ -19,6 +19,16 @@ const GITHUBAPI = {
     });
 
     return Promise.all(fetchPromises).then(projects => FORMATGITAPI.formatTopSixResults(projects));
+  },
+
+  fetchSearchRepositories: function(search) {
+    let URI = `https://api.github.com/search/repositories?q=${search}+fork:true&sort=stars`
+    return (
+      fetch(URI, {
+        method: 'get'
+      })
+      .then(response => response.json()).then(searchResults => FORMATGITAPI.formatGeneralSearchResults(searchResults))
+    )
   }
 }
 

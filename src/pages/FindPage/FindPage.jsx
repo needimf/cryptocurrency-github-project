@@ -9,7 +9,8 @@ class FindPage extends Component {
     this.state = {
       search: '',
       searchCompleted: false,
-      searchResults: []
+      searchResults: [],
+      isSearching: false
     }
   }
 
@@ -20,14 +21,21 @@ class FindPage extends Component {
   }
 
   handleSearchClick = () => {
+    if (this.state.search) {
+      this.setState({isSearching: true}, this.fetchGitHubSearch())
+    }
+  }
+
+  fetchGitHubSearch = () => {
     GITHUBAPI.fetchSearchRepositories(this.state.search)
       .then((repositories) => {
-        console.log(repositories)
-        this.setState({
+        this.setState(prevState => ({
           searchResults: repositories,
-          searchCompleted: true
-        })
-      });
+          searchCompleted: true,
+          prevSearch: prevState.search,
+          isSearching: false
+        }))
+      })
   }
 
   /*---------Lifecycle Methods---------*/
@@ -38,8 +46,10 @@ class FindPage extends Component {
           search={this.state.search}
           updateSearch={this.updateSearch}
           handleSearchClick={this.handleSearchClick}
+          isSearching={this.state.isSearching}
         />
         <SearchResultsDisplay
+          prevSearch={this.state.prevSearch}
           searchCompleted={this.state.searchCompleted}
           searchResults={this.state.searchResults}
         />

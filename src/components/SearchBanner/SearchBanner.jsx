@@ -26,7 +26,7 @@ const SearchBanner = (props) => {
                   </div>
                   <div className='control'>
                     <button 
-                      className='button is-dark'
+                      className={`button is-dark${props.isSearching ? ' is-loading' : ''}`}
                       onClick={() => {props.handleSearchClick()}}
                     >
                       Search

@@ -8,6 +8,7 @@ const Cards = (props) => {
         key={project.id}
         project={project}
         rank={idx + 1}
+        isTopSix={props.isTopSix}
       />
     );
   })

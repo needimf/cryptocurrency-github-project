@@ -26,8 +26,13 @@ const GITHUBAPI = {
     return (
       fetch(URI, {
         method: 'get'
-      })
-      .then(response => response.json()).then(searchResults => FORMATGITAPI.formatGeneralSearchResults(searchResults))
+      }).then(response => {
+        if(response.ok) {
+          return response.json();
+        }
+        throw new Error('Network response was not ok.')
+      }).then(searchResults => FORMATGITAPI.formatGeneralSearchResults(searchResults))
+      .catch(err => [])
     )
   }
 }

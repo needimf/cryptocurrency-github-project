@@ -15,6 +15,7 @@ const MainPage = (props) => {
       <div className='section'>
         <Cards 
           projectData={props.projectData}
+          isTopSix={true}
         />
       </div>
     </div>

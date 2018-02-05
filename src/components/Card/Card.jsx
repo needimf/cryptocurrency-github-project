@@ -9,11 +9,11 @@ const Card = (props) => {
         {/* Card header */}
           <div className='level is-mobile'>
             <div className='level-left'>
-              <div className='level-item'>
+              {props.isTopSix && <div className='level-item'>
                 <figure className='image is-64x64'>
                   <img src={props.project.avatar_url} alt='Organization Avatar' />
                 </figure>
-              </div>
+              </div>}
               <div className='level-item'>
                 <div>
                   <p className='title is-4'>{props.project.name}</p>
@@ -22,10 +22,17 @@ const Card = (props) => {
             </div>
             <div className='level-right'>
               <div className='level-item has-text-centered'>
-                <div>
-                  <p className='heading'>Rank</p>
-                  <p className='title'>{props.rank}</p>
-                </div>
+                {props.isTopSix ? 
+                  <div>
+                    <p className='heading'>Rank</p>
+                    <p className='title'>{props.rank}</p>
+                  </div>
+                  :
+                  <div>
+                    <p className='heading'>Stars</p>
+                    <p className='title'>{props.project.stargazers_count}</p>
+                  </div>  
+                }
               </div>
             </div>
           </div>

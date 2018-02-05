@@ -19,7 +19,6 @@ const FORMATGITAPI = {
   },
 
   formatGeneralSearchResults: function(searchResult) {
-    console.log(searchResult)
     return searchResult.items;
   }
 }

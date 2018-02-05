@@ -6,16 +6,15 @@ const SearchResultsDisplay = (props) => {
 
   if (props.searchCompleted) {
     display = props.searchResults.length > 0 ? 
-      <Cards projectData={props.searchResults} />
+      <Cards projectData={props.searchResults} isTopSix={false} />
       :
-      <div>No results to display, try another search.</div>
-  } else {
-    display = (<div>Search for your project!</div>)
+      <div className='has-text-centered'>Couldn't find anything matching "{props.prevSearch}", try another search.</div>
   }
+
   return (
-    <div>
+    <section className='section'>
       {display}
-    </div>
+    </section>
   )
 }
 

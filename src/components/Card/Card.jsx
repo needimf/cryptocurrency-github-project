@@ -9,6 +9,7 @@ const Card = (props) => {
         {/* Card header */}
           <div className='level is-mobile'>
             <div className='level-left'>
+              {/* if the card is displaying a Top Six crypto project then show the organization avatar */}
               {props.isTopSix && <div className='level-item'>
                 <figure className='image is-64x64'>
                   <img src={props.project.avatar_url} alt='Organization Avatar' />
@@ -22,6 +23,7 @@ const Card = (props) => {
             </div>
             <div className='level-right'>
               <div className='level-item has-text-centered'>
+                {/* if the card is displaying a Top Six crypto project then show the rank number otherwise show number of stars */}
                 {props.isTopSix ? 
                   <div>
                     <p className='heading'>Rank</p>

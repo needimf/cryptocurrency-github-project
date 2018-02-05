@@ -3,9 +3,9 @@ import FORMATGITAPI from './config/formatGithubApi';
 
 const GITHUBAPI = {
   /* 
-  Uses preset data from api/config directory
-  to fetch repo data from the public Github
-  API.
+    Uses preset data from api/config directory
+    to fetch repo data from the public Github
+    API.
   */
      
   fetchTop6CryptoProjects: function() {
@@ -21,6 +21,11 @@ const GITHUBAPI = {
     return Promise.all(fetchPromises).then(projects => FORMATGITAPI.formatTopSixResults(projects));
   },
 
+  /* 
+    Searches GitHub's public API for repositories
+    matching the user's search term and returns results
+    sorted by number of stars.
+  */
   fetchSearchRepositories: function(search) {
     let URI = `https://api.github.com/search/repositories?q=${search}+fork:true&sort=stars`
     return (
@@ -32,6 +37,8 @@ const GITHUBAPI = {
         }
         throw new Error('Network response was not ok.')
       }).then(searchResults => FORMATGITAPI.formatGeneralSearchResults(searchResults))
+      // Must return an empty array to permit correct rendering
+      // on client for searches consisting of only spaces
       .catch(err => [])
     )
   }

@@ -1,8 +1,10 @@
 const FORMATGITAPI = {
-  // Takes in all data returned from Github
-  // API (as an array of objects), and cleans
-  // up the resulting data objects for each
-  // of the Top Six projects
+  /*
+    Takes in all data returned from Github
+    API (as an array of objects), and cleans
+    up the resulting data objects for each
+    of the Top Six projects
+  */
   formatTopSixResults: function(arrayOfTopData) {
     return arrayOfTopData.map(project => {
       let reformattedData = {};
@@ -18,6 +20,11 @@ const FORMATGITAPI = {
     })
   },
 
+   /*
+    Takes in data returned from Github
+    API from general search, and only returns
+    the relevant array of results
+  */
   formatGeneralSearchResults: function(searchResult) {
     return searchResult.items;
   }

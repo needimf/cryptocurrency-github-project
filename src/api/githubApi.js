@@ -1,4 +1,5 @@
 import TOPSIX from './config/topSixData';
+import FORMATGITAPI from './config/formatGithubApi';
 
 const GITHUBAPI = {
   /* 
@@ -17,7 +18,7 @@ const GITHUBAPI = {
       fetchPromises.push(request);
     });
 
-    return Promise.all(fetchPromises)
+    return Promise.all(fetchPromises).then(projects => FORMATGITAPI.formatTopSixResults(projects));
   }
 }
 

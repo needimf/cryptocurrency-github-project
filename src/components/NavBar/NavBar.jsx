@@ -9,7 +9,7 @@ class NavBar extends Component {
     };
   }
   /*---------- Callback Methods ----------*/
-  handleNavBarHamburgerClick = () => {
+  handleNavBarClickMobile = () => {
     this.setState(prevState => ({
       navbarMenuStatus: prevState.navbarMenuStatus ? '' : ' is-active'
     }))
@@ -24,7 +24,7 @@ class NavBar extends Component {
 
           <button 
             className={`button navbar-burger is-warning${this.state.navbarMenuStatus}`}
-            onClick={() => this.handleNavBarHamburgerClick()}
+            onClick={() => this.handleNavBarClickMobile()}
           >
             <span></span>
             <span></span>
@@ -33,10 +33,10 @@ class NavBar extends Component {
         </div>
         <div className={`navbar-menu${this.state.navbarMenuStatus}`}>
           <div className='navbar-end'>
-            <Link to='/' className='navbar-item'>
+            <Link to='/' className='navbar-item' onClick={() => this.handleNavBarClickMobile()}>
               Top 6
             </Link>
-            <Link to='/find' className='navbar-item'>
+            <Link to='/find' className='navbar-item' onClick={() => this.handleNavBarClickMobile()}>
               Find a Project
             </Link>
           </div>

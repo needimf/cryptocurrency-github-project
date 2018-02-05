@@ -11,7 +11,7 @@ const Card = (props) => {
             <div className='level-left'>
               <div className='level-item'>
                 <figure className='image is-64x64'>
-                  <img src={props.project.organization.avatar_url} alt='Organization Avatar' />
+                  <img src={props.project.avatar_url} alt='Organization Avatar' />
                 </figure>
               </div>
               <div className='level-item'>

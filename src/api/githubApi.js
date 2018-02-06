@@ -14,11 +14,16 @@ const GITHUBAPI = {
       let URI = `https://api.github.com/repos/${currency.repoName}`
       let request = fetch(URI, {
         method: 'get'
-      }).then(res => res.json());
+      }).then(res => {
+        if(res.ok) {
+          return res.json();
+        }
+        throw new Error('Network response was not ok.');
+      })
       fetchPromises.push(request);
     });
 
-    return Promise.all(fetchPromises).then(projects => FORMATGITAPI.formatTopSixResults(projects));
+    return Promise.all(fetchPromises).then(projects => FORMATGITAPI.formatTopSixResults(projects)).catch(err => undefined);
   },
 
   /* 

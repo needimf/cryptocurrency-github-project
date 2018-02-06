@@ -17,7 +17,7 @@ const Card = (props) => {
               </div>}
               <div className='level-item'>
                 <div>
-                  <p className='title is-4'>{props.project.name}</p>
+                  <p className='name title is-4'>{props.project.name}</p>
                 </div>
               </div>
             </div>
@@ -78,12 +78,12 @@ const Card = (props) => {
                  */}
                 {props.project.homepage && (
                   <p className='control'>
-                    <a href={props.project.homepage} className='button is-link'>
+                    <a href={props.project.homepage} className='button is-warning'>
                       Homepage
                     </a>
                   </p>)}
                 <p className='control'>
-                  <a href={props.project.html_url} className='button'>
+                  <a href={props.project.html_url} className='button is-dark'>
                     <span className='icon'>
                       <i className='fab fa-github'></i>
                     </span>

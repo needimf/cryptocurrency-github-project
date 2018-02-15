@@ -18,17 +18,29 @@ const TOPSIX = [
     repoName: 'ripple/rippled'
   },
   {
+    currencyTicker: 'LTC',
+    repoName: 'litecoin-project/litecoin'
+  },
+  {
     currencyTicker: 'ADA',
     repoName: 'input-output-hk/cardano-sl'
   },
   {
-    currencyTicker: 'LTC',
-    repoName: 'litecoin-project/litecoin'
+    currencyTicker: 'XLM',
+    repoName: 'stellar/stellar-core'
   },
   {
     currencyTicker: 'NEO',
     repoName: 'neo-project/neo'
   },
+  {
+    currencyTicker: 'EOS',
+    repoName: 'EOSIO/eos'
+  },
+  {
+    currencyTicker: 'MIOTA',
+    repoName: 'iotaledger/wallet'
+  }
 ];
 
 export default TOPSIX;
